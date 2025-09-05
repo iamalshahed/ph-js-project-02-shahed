@@ -19,7 +19,7 @@
 }
 
 @layer utilities {
-  .fn_bn {
-    font-family: "Hind Siliguri", sans-serif;
+  .bn {
+    font-family: "Hind Siliguri", sans-serif !important;
   }
 }
