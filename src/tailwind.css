@@ -12,10 +12,6 @@
   ::selection {
     @apply bg-blue-100 text-black;
   }
-
-  /* body {
-    @apply w-full h-screen bg-white text-black;
-  } */
 }
 
 @layer utilities {
