@@ -6,12 +6,22 @@ const loadLesson = () => {
     .then((json) => displayLesson(json.data)); // jei json data gulo pabo seigu ekta function er modde store kore diyechi.. eikhane 'json' name er parameter e sokol data store hobe
 };
 
+const removeActiveCls = () => {
+  const btnLesson = document.querySelectorAll(".btn__lesson");
+  btnLesson.forEach((btn) => btn.classList.remove("btn__active"));
+};
+
 const loadLevelsWord = (id) => {
   const url = `https://openapi.programming-hero.com/api/level/${id}`;
 
   fetch(url)
     .then((res) => res.json())
-    .then((data) => displayLevelsWords(data.data));
+    .then((data) => {
+      removeActiveCls(); // remove all active class
+      const btnClicked = document.getElementById(`btn__lesson${id}`);
+      btnClicked.classList.add("btn__active");
+      displayLevelsWords(data.data);
+    });
 };
 
 // display levels words
@@ -55,7 +65,7 @@ const displayLevelsWords = (words) => {
     }</h1>
             </div>
             <div class="mt-14 flex items-center justify-between">
-                <button class="text-2xl text-slate-700 px-4 py-3 rounded-lg bg-sky-500/10 cursor-pointer hover:bg-sky-100">
+                <button onclick='my_modal_5.showModal()' class="text-2xl text-slate-700 px-4 py-3 rounded-lg bg-sky-500/10 cursor-pointer hover:bg-sky-100">
                 <i class="ri-information-2-fill"></i>
                 </button>
                 <button class="text-2xl text-slate-700 px-4 py-3 rounded-lg bg-sky-500/10 cursor-pointer hover:bg-sky-100">
@@ -79,7 +89,7 @@ const displayLesson = (lessons) => {
     // 3. create an element
     const btnDiv = document.createElement("div");
     btnDiv.innerHTML = `
-        <button onclick="loadLevelsWord(${lesson.level_no})" class="btn btn-outline btn-primary">
+        <button id='btn__lesson${lesson.level_no}' onclick="loadLevelsWord(${lesson.level_no})" class="btn btn-outline btn-primary btn__lesson">
             <span>
             <i class="ri-book-open-fill"></i>
             </span>

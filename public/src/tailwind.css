@@ -18,4 +18,8 @@
   .bn {
     font-family: "Hind Siliguri", sans-serif !important;
   }
+
+  .btn__active {
+    @apply bg-indigo-700 text-white font-black outline-1 outline-offset-[-1px] outline-indigo-700;
+  }
 }
