@@ -6,6 +6,28 @@ const loadLesson = () => {
     .then((json) => displayLesson(json.data)); // jei json data gulo pabo seigu ekta function er modde store kore diyechi.. eikhane 'json' name er parameter e sokol data store hobe
 };
 
+const loadLevelsWord = (id) => {
+  const url = `https://openapi.programming-hero.com/api/level/${id}`;
+
+  fetch(url)
+    .then((res) => res.json())
+    .then((data) => displayLevelsWords(data.data));
+};
+
+// display levels words
+const displayLevelsWords = (words) => {
+  const wordContainer = document.getElementById("word__container");
+  wordContainer.innerHTML = "";
+
+  words.forEach((word) => {
+    const wordCard = document.createElement("div");
+    wordCard.innerHTML = `
+    <p>card</p>
+    `;
+    wordContainer.append(wordCard);
+  });
+};
+
 // datagulo ke display korte hobe
 const displayLesson = (lessons) => {
   // 1. get the parent & empty innerHTML
@@ -17,7 +39,7 @@ const displayLesson = (lessons) => {
     // 3. create an element
     const btnDiv = document.createElement("div");
     btnDiv.innerHTML = `
-        <button class="btn btn-outline btn-primary">
+        <button onclick="loadLevelsWord(${lesson.level_no})" class="btn btn-outline btn-primary">
             <span>
             <i class="ri-book-open-fill"></i>
             </span>
