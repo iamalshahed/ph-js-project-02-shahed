@@ -17,10 +17,99 @@
     />
   </head>
   <body>
-    
+    <header class="w-full max-w-7xl mx-auto sm:p-4">
+      <div class="navbar bg-base-100 shadow-sm">
+        <div class="navbar-start">
+          <div class="dropdown">
+            <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h8m-8 6h16"
+                />
+              </svg>
+            </div>
+            <ul
+              tabindex="0"
+              class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow space-y-4"
+            >
+              <li>
+                <a href="" class="btn btn-outline btn-primary">
+                  <span>
+                    <i class="ri-question-fill"></i>
+                  </span>
+                  FAQ
+                </a>
+              </li>
+
+              <li>
+                <a href="" class="btn btn-outline btn-primary">
+                  <span>
+                    <i class="ri-book-open-fill"></i>
+                  </span>
+                  Learn
+                </a>
+              </li>
+
+              <li>
+                <a href="" class="btn btn-outline btn-primary">
+                  <span>
+                    <i class="ri-logout-box-r-line"></i>
+                  </span>
+                  Logout
+                </a>
+              </li>
+            </ul>
+          </div>
+          <a href="/" class="flex items-center gap-1">
+            <span class="text-xl font-semibold">English</span>
+            <img src="/logo.png" alt="logo" />
+            <span class="text-xl font-normal">জানালা</span>
+          </a>
+        </div>
+
+        <div class="navbar-end hidden lg:flex">
+          <ul class="menu menu-horizontal px-1 space-x-4">
+            <li>
+              <a href="" class="btn btn-outline btn-primary">
+                <span>
+                  <i class="ri-question-fill"></i>
+                </span>
+                FAQ
+              </a>
+            </li>
+
+            <li>
+              <a href="" class="btn btn-outline btn-primary">
+                <span>
+                  <i class="ri-book-open-fill"></i>
+                </span>
+                Learn
+              </a>
+            </li>
+
+            <li>
+              <a href="" class="btn btn-outline btn-primary">
+                <span>
+                  <i class="ri-logout-box-r-line"></i>
+                </span>
+                Logout
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
 
     <!-- connect script file -->
     <script type="module" src="./src/main.js"></script>
-
   </body>
 </html>

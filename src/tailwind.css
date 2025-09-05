@@ -3,3 +3,23 @@
 
 @import "tailwindcss";
 @plugin "daisyui";
+
+@layer base {
+  * {
+    font-family: "Space Grotesk", sans-serif;
+  }
+
+  ::selection {
+    @apply bg-blue-100 text-black;
+  }
+
+  /* body {
+    @apply w-full h-screen bg-white text-black;
+  } */
+}
+
+@layer utilities {
+  .fn_bn {
+    font-family: "Hind Siliguri", sans-serif;
+  }
+}
