@@ -19,6 +19,17 @@ const displayLevelsWords = (words) => {
   const wordContainer = document.getElementById("word__container");
   wordContainer.innerHTML = "";
 
+  if (words.length == 0) {
+    wordContainer.innerHTML = `
+      <div class="space-y-3 col-span-full text-center font-bn">
+        <img src="/img/alert-error.png" alt="err" class="mx-auto">
+        <p class="text-stone-500 text-sm font-normal">এই Lesson এ এখনো কোন Vocabulary যুক্ত করা হয়নি।</p>
+        <h1 class="text-stone-500 text-4xl font-medium">নেক্সট Lesson এ যান</h1>
+      </div>
+    `;
+    return;
+  }
+
   words.forEach((word) => {
     /*
     {
@@ -31,11 +42,17 @@ const displayLevelsWords = (words) => {
     */
     const wordCard = document.createElement("div");
     wordCard.innerHTML = `
-        <div class="p-14 bg-white rounded-xl">
+        <div class="p-4 sm:p-14 bg-white rounded-xl">
             <div class="space-y-6 text-center">
-                <h2 class="text-black text-3xl font-bold">${word.word}</h2>
-                <p class="text-black text-xl font-medium">${word.meaning} / ${word.pronunciation}</p>
-                <h1 class="text-zinc-900 text-3xl font-semibold">"আগ্রহী / ইগার"</h1>
+                <h2 class="text-black text-3xl font-bold">${
+                  word.word ? word.word : "শব্দ পাওয়া যায়নি"
+                }</h2>
+                <p class="text-black text-xl font-medium">Meaning / Pronounciation</p>
+                <h1 class="text-zinc-900 text-3xl font-semibold">${
+                  word.meaning ? word.meaning : "অর্থ পাওয়া যায়নি"
+                } / ${
+      word.pronunciation ? word.pronunciation : "উচ্চারণ পাওয়া যায়নি"
+    }</h1>
             </div>
             <div class="mt-14 flex items-center justify-between">
                 <button class="text-2xl text-slate-700 px-4 py-3 rounded-lg bg-sky-500/10 cursor-pointer hover:bg-sky-100">
