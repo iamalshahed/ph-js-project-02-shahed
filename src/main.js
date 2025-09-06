@@ -1,3 +1,18 @@
+const createElements = (arr) => {
+  const htmlElems = arr.map((elm) => `<span class='btn'>${elm}</span>`);
+  return htmlElems.join(" ");
+};
+
+const manageSpinner = (status) => {
+  if (status == true) {
+    document.getElementById("spinner").classList.remove("hidden");
+    document.getElementById("word__container").classList.add("hidden");
+  } else {
+    document.getElementById("word__container").classList.remove("hidden");
+    document.getElementById("spinner").classList.add("hidden");
+  }
+};
+
 const loadLesson = () => {
   const url = "https://openapi.programming-hero.com/api/levels/all";
 
@@ -12,6 +27,7 @@ const removeActiveCls = () => {
 };
 
 const loadLevelsWord = (id) => {
+  manageSpinner(true);
   const url = `https://openapi.programming-hero.com/api/level/${id}`;
 
   fetch(url)
@@ -50,7 +66,6 @@ const loadWordDetails = (id) => {
 */
 
 const displayWordDetails = (word) => {
-  console.log(word);
   const detailsContainer = document.getElementById("details__container");
   detailsContainer.innerHTML = `
     <h1 class="text-4xl font-semibold">
@@ -67,9 +82,7 @@ const displayWordDetails = (word) => {
     </div>
     <div class="">
       <h3 class="text-2xl font-medium">সমার্থক শব্দ গুলো</h3>
-      <span class="btn text-xl font-normal">Enthusiastic</span>
-      <span class="btn text-xl font-normal">excited</span>
-      <span class="btn text-xl font-normal">keen</span>
+      <div class="">${createElements(word.synonyms)}</div>
     </div>
   `;
   document.getElementById("word__modal").showModal();
@@ -88,6 +101,7 @@ const displayLevelsWords = (words) => {
         <h1 class="text-stone-500 text-4xl font-medium">নেক্সট Lesson এ যান</h1>
       </div>
     `;
+    manageSpinner(false);
     return;
   }
 
@@ -129,6 +143,7 @@ const displayLevelsWords = (words) => {
     `;
     wordContainer.append(wordCard);
   });
+  manageSpinner(false);
 };
 
 // datagulo ke display korte hobe
