@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>English Janala</title>
     <!-- link tailwindcss file -->
-    <link rel="stylesheet" href="./public/src/tailwind.css" />
+    <link rel="stylesheet" href="./src/tailwind.css" />
 
     <!-- favicon -->
-    <link rel="shortcut icon" href="/img/logo.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="/logo.png" type="image/x-icon" />
 
     <!-- remix-icon cdn -->
     <link
@@ -71,7 +71,7 @@
           </div>
           <a href="/" class="flex items-center gap-1">
             <span class="text-xl font-semibold">English</span>
-            <img src="/img/logo.png" alt="logo" />
+            <img src="/logo.png" alt="logo" />
             <span class="text-xl font-normal">জানালা</span>
           </a>
         </div>
@@ -128,7 +128,7 @@
         </div>
         <!-- image -->
         <div class="flex-1">
-          <img src="/img/hero-student.png" alt="hero-student" />
+          <img src="/hero-student.png" alt="hero-student" />
         </div>
       </section>
 
@@ -166,11 +166,11 @@
 
       <!-- Open the modal using ID.showModal() method -->
       <!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
-      
-      <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+
+      <dialog id="word__modal" class="modal modal-bottom sm:modal-middle">
         <div class="modal-box">
-          <h3 class="text-lg font-bold">Hello!</h3>
-          <p class="py-4">Press ESC key or click the button below to close</p>
+          <!-- details container -->
+          <div id="details__container" class="space-y-5"></div>
           <div class="modal-action">
             <form method="dialog">
               <!-- if there is a button in form, it will close the modal -->
@@ -182,6 +182,6 @@
     </main>
 
     <!-- connect script file -->
-    <script src="./public/src/main.js"></script>
+    <script src="./src/main.js"></script>
   </body>
 </html>
